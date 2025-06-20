@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            padding:10px;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: none;   
+        }
+        input{
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        ul{
+            list-style: none;
+            padding: 10px; ;
+            
+        }
+        .delete{
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 10px;
+        }
+        li{
+            padding:10px;
+            font-display: block;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Task: </h1>
+    <input type="text" id="task" placeholder="Enter your task" required />
+    <button onclick="addTask()" id="btn">Add Task</button>
+    <ul id="tasklist">
+ 
+        <!-- Task items will be added here -->
+    </ul>
+    <script>
+    let task = document.getElementById("task");
+    let ul = document.getElementById("tasklist");
+    let btn = document.getElementById("btn");
+    function addTask(){
+    if(task.value ==""){
+        alert("Please enter a task");
+        return;
+    }
+    let li = document.createElement("li");
+    li.innerHTML = task.value + "<button onclick='this.parentElement.remove()' class='delete'>Delete</button>";
+   ul.appendChild(li);
+}
+    </script>
+</body>
+</html>
